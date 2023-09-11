@@ -25,5 +25,5 @@ def sumOfFactorsBelow(n):
     return sum
 
 if __name__ == "__main__":
-    upperLimit = 10
+    upperLimit = 1000
     print(f"Sum of multiples of 3 and 5 below {upperLimit} is {sumOfFactorsBelow(upperLimit)}")
