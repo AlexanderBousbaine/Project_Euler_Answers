@@ -3,7 +3,7 @@ The four adjacent digits in the generated 1000-digit number that have the greate
 
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 '''
-def findProdcut(n):
+def findProduct(n):
     #take in number as string and then clean up so that it is one long line of numbers
     stringOfNum = n.replace('\n','').replace(' ','')
     largestProduct = 0
@@ -46,4 +46,4 @@ if __name__ == "__main__":
     05886116467109405077541002256983155200055935729725
     71636269561882670428252483600823257530420752963450
     '''
-    print(f"The largest product of 13 adjacent digits in the given number is {findProdcut(number)}")
+    print(f"The largest product of 13 adjacent digits in the given number is {findProduct(number)}")
