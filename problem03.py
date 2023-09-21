@@ -6,21 +6,20 @@ What is the largest prime factor of the number 600,851,475,143
 
 def findLargestPrimeFactorOf(n):
     #control variables
-    largestFactor = 0
-    currentFactor = 2
+    currentFactor = 3
     dividend = n
-    primes = [currentFactor]
+    primes = [2]
 
-    while dividend > largestFactor:
+    if(n==4):
+        return 2
+
+    while dividend > max(primes):
         #if the dividend can be divided without remainder by the current prime factor
         if(dividend%currentFactor==0):
             
             #if the current factor is a prime number that hasn't been tried yet, then add it to the list
-            if(not primes.__contains__(currentFactor)):
+            if(not primes.count(currentFactor) > 0):
                 primes.append(currentFactor)
-
-            #change largest factor if necessary
-            largestFactor = currentFactor if currentFactor > largestFactor else largestFactor
 
             #perform division
             dividend /= currentFactor
@@ -30,11 +29,7 @@ def findLargestPrimeFactorOf(n):
             # find a new prime number.
             findNewPrime = True
             while findNewPrime:
-                currentFactor+=1
-                
-                #avoid even numbers as they (apart from 2) cannot be prime
-                if(currentFactor%2==0):
-                    currentFactor+=1
+                currentFactor+=2
 
                 #check if new potential prime can be divided by any previously discovered prime numbers
                 for prime in primes:
@@ -44,7 +39,7 @@ def findLargestPrimeFactorOf(n):
                         findNewPrime = True
                         break
 
-    return largestFactor
+    return max(primes)
 
 if __name__ == "__main__":
     target = 600851475143

@@ -7,7 +7,6 @@ we get 3, 5, 6, and 9. The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
-
 def sumOfFactorsBelow(n):
     
     sum = 0
@@ -24,6 +23,16 @@ def sumOfFactorsBelow(n):
     
     return sum
 
+#kinda unique solution - wanted to test it
+def setSolution(n):
+    threes = [i for i in range(n) if i%3 == 0]
+    fives = [i for i in range(n) if i%5 == 0]
+
+    combinedSet = set([*threes, *fives])
+    
+    return sum(combinedSet)
+
+
 if __name__ == "__main__":
     upperLimit = 1000
-    print(f"Sum of multiples of 3 and 5 below {upperLimit} is {sumOfFactorsBelow(upperLimit)}")
+    print(f"Sum of multiples of 3 and 5 below {upperLimit} is {setSolution(upperLimit)}")
